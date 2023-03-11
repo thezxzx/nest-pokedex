@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  db:
+    image: mongo:5
+    restart: always
+    ports:
+      - 27017:27017 # Puerto PC | Puerto Contenedor
+    environment:
+      MONGODB_DATABASE: nest-pokemon
+    volumes: # Hacer persistente
+      - ./mongo:/data/db # Carpeta que se va a crear en el PC | Carpeta del contenedor
