@@ -89,7 +89,10 @@ export class PokemonService {
     // const pokemon = await this.findOne(id);
     // await pokemon.deleteOne();
     // this.pokemonModel.findByIdAndDelete();
-    return { id };
+    // return { id };
+    const result = this.pokemonModel.findByIdAndDelete(id);
+
+    return result;
   }
 
   private handleExceptions(error: any) {
