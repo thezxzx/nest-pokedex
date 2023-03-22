@@ -5,6 +5,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { CommonModule } from './common/common.module';
 import { EnvConfiguration } from './config/app.config';
+import { JoiValidationSchema } from './config/joi.validation';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { SeedModule } from './seed/seed.module';
 
@@ -13,6 +14,7 @@ import { SeedModule } from './seed/seed.module';
     // Configurar variables de entorno
     ConfigModule.forRoot({
       load: [EnvConfiguration], // Archivo de configuración
+      validationSchema: JoiValidationSchema, // Esquema de validación creado con Joi
     }),
     // Contenido estatico
     ServeStaticModule.forRoot({
